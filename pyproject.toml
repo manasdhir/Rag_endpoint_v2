@@ -1,0 +1,33 @@
+[project]
+name = "new-approach"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "chonkie[all]>=1.1.1",
+    "docling>=2.43.0",
+    "extract-msg>=0.54.1",
+    "fastapi>=0.116.1",
+    "google-generativeai>=0.8.5",
+    "json5>=0.12.0",
+    "lancedb>=0.24.2",
+    "langchain-community>=0.3.27",
+    "langchain-core>=0.3.72",
+    "langchain-docling>=1.0.0",
+    "langchain-huggingface>=0.3.1",
+    "langchain-openai>=0.3.28",
+    "langchain-text-splitters>=0.3.9",
+    "langdetect>=1.0.9",
+    "langgraph>=0.6.4",
+    "openai>=1.98.0",
+    "pdfplumber>=0.11.7",
+    "pikepdf>=9.10.2",
+    "pydantic>=2.11.7",
+    "pymupdf>=1.26.3",
+    "python-docx>=1.2.0",
+    "redis>=6.4.0",
+    "rerankers>=0.10.0",
+    "sentence-transformers>=5.0.0",
+    "uvicorn>=0.35.0",
+]
