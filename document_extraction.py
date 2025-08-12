@@ -34,19 +34,23 @@ URI = "./bajaj_embed_512_new"
 conn=lancedb.connect(URI)
 from langchain_community.vectorstores import LanceDB
 # embeddings_model = HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
-
+embeddings_model = HuggingFaceEmbeddings(
+    model_name="BAAI/bge-m3",
+    model_kwargs={"device": "cpu"},
+    encode_kwargs={"batch_size": 256}
+)
 from chonkie import SentenceTransformerEmbeddings
-# embeddings = SentenceTransformerEmbeddings(
-#     "BAAI/bge-m3",
-#     device="cuda:0"
-# )
-# chunker = SDPMChunker(
-#     embedding_model="BAAI/bge-m3",  # Default model
-#     threshold=0.5,                              # Similarity threshold (0-1)
-#     chunk_size=512,                             # Maximum tokens per chunk
-#     min_sentences=5,                            # Initial sentences per chunk
-#     skip_window=1                               # Number of chunks to skip when looking for similarities
-# )
+embeddings = SentenceTransformerEmbeddings(
+    "BAAI/bge-m3",
+    device="cpu"
+)
+chunker = SDPMChunker(
+    embedding_model=embeddings,  # Default model
+    threshold=0.5,                              # Similarity threshold (0-1)
+    chunk_size=512,                             # Maximum tokens per chunk
+    min_sentences=5,                            # Initial sentences per chunk
+    skip_window=1                               # Number of chunks to skip when looking for similarities
+)
 from threading import Lock
 background_task_lock = Lock()
 # ocr_options = EasyOcrOptions(force_full_page_ocr=True)
@@ -173,25 +177,25 @@ def delete_document_cache(text_hash: str):
         print(f"No cache found for text_hash: {text_hash}")
 
 if __name__ == "__main__":
-    # import fitz
-    # def extract_text_from_pdf(pdf_path):
-    #     text = ""
-    #     with fitz.open(pdf_path) as doc:
-    #         for page in doc:
-    #             text += page.get_text()
-    #     return text
-    # text=extract_text_from_pdf('files/UNI GROUP HEALTH INSURANCE POLICY - UIIHLGP26043V022526 1.pdf')
-    # extract_to_markdown_local(text)
-    # # delete_document_cache("3d5ba84af4a248e3b9a126b4ca2cd4fdfbdd6d7309bee2f559c1540d09806c20")
-    # # redis_client.flushdb()
-    # def print_all_redis_entries():
-    #     print("=== Redis Entries ===")
-    #     for key in redis_client.scan_iter("*"):  # Scan all keys
-    #         try:
-    #             value = redis_client.get(key)
-    #             print(f"{key.decode('utf-8')} => {value.decode('utf-8') if value else None}")
-    #         except Exception as e:
-    #             print(f"{key} => <non-string value or error: {e}>")
+    import fitz
+    def extract_text_from_pdf(pdf_path):
+        text = ""
+        with fitz.open(pdf_path) as doc:
+            for page in doc:
+                text += page.get_text()
+        return text
+    text=extract_text_from_pdf('files/UNI GROUP HEALTH INSURANCE POLICY - UIIHLGP26043V022526 1.pdf')
+    extract_to_markdown_local(text)
+    # delete_document_cache("3d5ba84af4a248e3b9a126b4ca2cd4fdfbdd6d7309bee2f559c1540d09806c20")
+    # redis_client.flushdb()
+    def print_all_redis_entries():
+        print("=== Redis Entries ===")
+        for key in redis_client.scan_iter("*"):  # Scan all keys
+            try:
+                value = redis_client.get(key)
+                print(f"{key.decode('utf-8')} => {value.decode('utf-8') if value else None}")
+            except Exception as e:
+                print(f"{key} => <non-string value or error: {e}>")
     print_all_redis_entries()
     # from pprint import pprint
     # import time
