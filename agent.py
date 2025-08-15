@@ -10,7 +10,7 @@ from langgraph.graph.message import add_messages
 import requests
 llm = ChatOpenAI(
     model="openai/gpt-oss-20b",
-    api_key="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",
+    api_key="",
     base_url="https://api.groq.com/openai/v1",  # Any OpenAI-compatible endpoint
 )
 @tool
