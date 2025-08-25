@@ -1,5 +1,5 @@
 version = 1
-revision = 3
+revision = 2
 requires-python = ">=3.13"
 resolution-markers = [
     "sys_platform == 'darwin'",
@@ -795,6 +795,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/8b/02/0835e6ab9cfc03916fe3f78c0956cfcdb6ff2669ffa6651065d5ebf7fc98/fsspec-2025.7.0.tar.gz", hash = "sha256:786120687ffa54b8283d942929540d8bc5ccfa820deb555a2b5d0ed2b737bf58", size = 304432, upload-time = "2025-07-15T16:05:21.19Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/2f/e0/014d5d9d7a4564cf1c40b5039bc882db69fd881111e03ab3657ac0b218e2/fsspec-2025.7.0-py3-none-any.whl", hash = "sha256:8b012e39f63c7d5f10474de957f3ab793b47b45ae7d39f2fb735f8bbe25c0e21", size = 199597, upload-time = "2025-07-15T16:05:19.529Z" },
+]
+
+[[package]]
+name = "git-filter-repo"
+version = "2.47.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b9/bb/7a283f568af6b0528ade65e8ace84bd6ba46003e429101bcd62c232d01a5/git_filter_repo-2.47.0.tar.gz", hash = "sha256:411b27e68a080c07a69c233cb526dbc2d848b09a72f10477f4444dd0822cf290", size = 275743, upload-time = "2024-12-04T03:10:48.2Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/60/60/d3943f0880ebcb7e0bdf79254d10dddd39c7b656eeecae32b8806ff66dec/git_filter_repo-2.47.0-py3-none-any.whl", hash = "sha256:2cd04929b9024e83e65db571cbe36aec65ead0cb5f9ec5abe42158654af5ad83", size = 76282, upload-time = "2024-12-04T03:10:46.064Z" },
 ]
 
 [[package]]
@@ -1911,6 +1920,7 @@ dependencies = [
     { name = "docling" },
     { name = "extract-msg" },
     { name = "fastapi" },
+    { name = "git-filter-repo" },
     { name = "google-generativeai" },
     { name = "json5" },
     { name = "lancedb" },
@@ -1940,6 +1950,7 @@ requires-dist = [
     { name = "docling", specifier = ">=2.43.0" },
     { name = "extract-msg", specifier = ">=0.54.1" },
     { name = "fastapi", specifier = ">=0.116.1" },
+    { name = "git-filter-repo", specifier = ">=2.47.0" },
     { name = "google-generativeai", specifier = ">=0.8.5" },
     { name = "json5", specifier = ">=0.12.0" },
     { name = "lancedb", specifier = ">=0.24.2" },

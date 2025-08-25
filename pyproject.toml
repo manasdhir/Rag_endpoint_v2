@@ -9,6 +9,7 @@ dependencies = [
     "docling>=2.43.0",
     "extract-msg>=0.54.1",
     "fastapi>=0.116.1",
+    "git-filter-repo>=2.47.0",
     "google-generativeai>=0.8.5",
     "json5>=0.12.0",
     "lancedb>=0.24.2",
